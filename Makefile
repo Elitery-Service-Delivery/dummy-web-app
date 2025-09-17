@@ -8,7 +8,7 @@ help:
 	@echo "  test       - Run tests"
 	@echo "  clean      - Clean build artifacts"
 	@echo "  docker     - Build Docker image for development"
-	@echo "  docker-dev - Run with docker-compose"
+	@echo "  docker-dev - Run with docker compose"
 	@echo "  fmt        - Format code"
 	@echo "  clippy     - Run clippy linter"
 
@@ -40,17 +40,17 @@ clippy:
 docker:
 	docker build -f Dockerfile.dev -t ip-fetcher:dev .
 
-# Run with docker-compose
+# Run with docker compose
 docker-dev:
-	docker-compose up --build
+	docker compose up --build
 
-# Stop docker-compose services
+# Stop docker compose services
 docker-stop:
-	docker-compose down
+	docker compose down
 
 # View logs
 docker-logs:
-	docker-compose logs -f ip-fetcher
+	docker compose logs -f ip-fetcher
 
 # Check if the service is running
 check:

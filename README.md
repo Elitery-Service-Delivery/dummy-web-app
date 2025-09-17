@@ -41,7 +41,7 @@ A lightweight Rust web service that fetches and caches IP information from ifcon
 
 1. **Using Docker Compose (recommended)**
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 2. **Using Docker directly**
@@ -52,15 +52,20 @@ A lightweight Rust web service that fetches and caches IP information from ifcon
 
 ### Production Deployment
 
+**Note**: The published Docker image will be available after the first successful CI/CD pipeline run.
+
 1. **Update the image reference in `docker-compose.yml`**
    ```yaml
    # Comment out the build section and uncomment the image line:
    image: ghcr.io/elitery-service-delivery/dummy-web-app:latest
+   # build:
+   #   context: .
+   #   dockerfile: Dockerfile.dev
    ```
 
 2. **Run in production mode**
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 ## GitHub Actions CI/CD
