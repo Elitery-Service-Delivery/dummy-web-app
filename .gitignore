@@ -1,0 +1,51 @@
+# Ignore Rust build artifacts
+/target/
+Cargo.lock
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# Ignore environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# Ignore logs
+*.log
+logs/
+
+# Ignore temporary files
+tmp/
+temp/
+
+# Ignore node_modules if any JavaScript tools are added later
+node_modules/
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore compiled binaries (just in case)
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore backup files
+*.orig
+*.rej
+
+# Ignore local development artifacts
+.cache/
+.local/

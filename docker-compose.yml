@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  ip-fetcher:
+    # For production, use the published image from GitHub Container Registry
+    # image: ghcr.io/your-username/dummy-apps:latest
+    
+    # For local development, build from Dockerfile.dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    
+    container_name: ip-fetcher-app
+    
+    ports:
+      - "3000:3000"
+    
+    environment:
+      - RUST_LOG=info
+    
+    restart: unless-stopped
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.5'
+        reservations:
+          memory: 64M
+          cpus: '0.1'
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Labels for better organization
+    labels:
+      - "app=ip-fetcher"
+      - "environment=development"
