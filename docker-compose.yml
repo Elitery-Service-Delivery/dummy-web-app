@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   ip-fetcher:
-    # Use the published image from GitHub Container Registry for production
-    # image: ghcr.io/elitery-service-delivery/dummy-web-app:latest
+    # Use the published image from GitHub Container Registry
+    image: ghcr.io/elitery-service-delivery/dummy-web-app:latest
     
-    # For local development, build from Dockerfile.dev
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
+    # For local development, uncomment the build section below:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.dev
     
     container_name: ip-fetcher-app
     
