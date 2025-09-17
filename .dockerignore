@@ -18,5 +18,5 @@ Cargo.lock
 .github/
 
 # Ignore development Docker files
-docker-compose*.yml
+docker-compose.yml
 Dockerfile.dev

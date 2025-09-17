@@ -52,14 +52,15 @@ A lightweight Rust web service that fetches and caches IP information from ifcon
 
 ### Production Deployment
 
-1. **Update the image reference in `docker-compose.prod.yml`**
+1. **Update the image reference in `docker-compose.yml`**
    ```yaml
+   # Comment out the build section and uncomment the image line:
    image: ghcr.io/elitery-service-delivery/dummy-web-app:latest
    ```
 
 2. **Run in production mode**
    ```bash
-   docker-compose -f docker-compose.prod.yml up -d
+   docker-compose up -d
    ```
 
 ## GitHub Actions CI/CD
@@ -95,15 +96,9 @@ The repository includes a comprehensive CI/CD pipeline that:
    ghcr.io/elitery-service-delivery/dummy-web-app:latest
    ```
 
-## Configuration
-
-### Environment Variables
-
-- `RUST_LOG` - Log level (debug, info, warn, error)
-
 ### Docker Resource Limits
 
-The production Docker Compose configuration includes:
+The Docker Compose configuration includes:
 - Memory limit: 256MB
 - CPU limit: 1.0 cores
 - Memory reservation: 128MB

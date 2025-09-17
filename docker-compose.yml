@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   ip-fetcher:
-    # For production, use the published image from GitHub Container Registry
-    # image: ghcr.io/your-username/dummy-apps:latest
+    # Use the published image from GitHub Container Registry for production
+    # image: ghcr.io/elitery-service-delivery/dummy-web-app:latest
     
     # For local development, build from Dockerfile.dev
     build:
@@ -24,11 +24,11 @@ services:
     deploy:
       resources:
         limits:
-          memory: 128M
-          cpus: '0.5'
+          memory: 256M
+          cpus: '1.0'
         reservations:
-          memory: 64M
-          cpus: '0.1'
+          memory: 128M
+          cpus: '0.2'
     
     # Health check
     healthcheck:

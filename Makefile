@@ -1,4 +1,4 @@
-.PHONY: build run test clean docker docker-dev docker-prod help
+.PHONY: build run test clean docker docker-dev help
 
 # Default target
 help:
@@ -8,8 +8,7 @@ help:
 	@echo "  test       - Run tests"
 	@echo "  clean      - Clean build artifacts"
 	@echo "  docker     - Build Docker image for development"
-	@echo "  docker-dev - Run with docker-compose (development)"
-	@echo "  docker-prod- Run with docker-compose (production)"
+	@echo "  docker-dev - Run with docker-compose"
 	@echo "  fmt        - Format code"
 	@echo "  clippy     - Run clippy linter"
 
@@ -41,18 +40,13 @@ clippy:
 docker:
 	docker build -f Dockerfile.dev -t ip-fetcher:dev .
 
-# Run with docker-compose (development)
+# Run with docker-compose
 docker-dev:
 	docker-compose up --build
-
-# Run with docker-compose (production)
-docker-prod:
-	docker-compose -f docker-compose.prod.yml up -d
 
 # Stop docker-compose services
 docker-stop:
 	docker-compose down
-	docker-compose -f docker-compose.prod.yml down
 
 # View logs
 docker-logs:
