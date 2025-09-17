@@ -1,51 +1,39 @@
-# Ignore Rust build artifacts
-/target/
-Cargo.lock
+# Build artifacts
+dist/
+*.exe
+*.tar.gz
+*.zip
 
-# Ignore IDE files
+# Go specific
+*.mod
+*.sum
+
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Ignore OS files
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-*.tmp
-*.bak
 
-# Ignore environment files
+# Logs
+*.log
+
+# Environment files
 .env
 .env.local
-.env.production
-.env.development
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Ignore logs
-*.log
-logs/
-
-# Ignore temporary files
+# Temporary files
 tmp/
 temp/
-
-# Ignore node_modules if any JavaScript tools are added later
-node_modules/
-
-# Ignore coverage reports
-coverage/
-*.lcov
-
-# Ignore compiled binaries (just in case)
-*.exe
-*.dll
-*.so
-*.dylib
-
-# Ignore backup files
-*.orig
-*.rej
-
-# Ignore local development artifacts
-.cache/
-.local/

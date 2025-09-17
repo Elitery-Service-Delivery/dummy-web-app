@@ -1,0 +1,44 @@
+[Unit]
+Description=FastFetch Web Server
+Documentation=https://github.com/Elitery-Service-Delivery/dummy-web-app
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=fastfetch
+Group=fastfetch
+WorkingDirectory=/opt/fastfetch-server
+ExecStart=/opt/fastfetch-server/fastfetch-server
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/tmp
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RemoveIPC=true
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Environment
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=HOME=/opt/fastfetch-server
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=fastfetch-server
+
+[Install]
+WantedBy=multi-user.target
